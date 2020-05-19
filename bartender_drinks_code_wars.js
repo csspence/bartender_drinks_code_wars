@@ -17,6 +17,38 @@ Make sure you cover the cases where certain words do not show up with correct ca
 For example, getDrinkByProfession("pOLitiCIaN") should still return "Your tax dollars".
 */
 
-function getDrinkByProfession(param){
+const correctCapital = (str) => {
+  console.log('here is str: ' + str);
+  str = str.toLowerCase();
+  let array = str.split(' ');
+  let newStr = '';
+  for(let i = 0; i < array.length; i++) {
+    array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1);
+  }
+  newStr = array.join(' ');
+  console.log('here is newStr: ' + newStr);
+  return newStr;
+}
 
+const getDrinkByProfession = (param) => {
+  let newParam = correctCapital(param);
+  if(newParam === 'Jabroni') {
+    return 'Patron Tequila';
+  }
+  if(newParam === 'School Counselor') {
+    return 'Anything with Alcohol';
+  }
+  if(newParam === 'Programmer') {
+    return 'Hipster Craft Beer';
+  }
+  if(newParam === 'Bike Gang Member') {
+    return 'Moonshine';
+  }
+  if(newParam === 'Politician') {
+    return 'Your tax dollars';
+  }
+  if(newParam === 'Rapper') {
+    return 'Cristal';
+  }
+  return 'Beer';
 }
